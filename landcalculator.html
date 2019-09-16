@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SLAP | CALCULATOR</title>
+
+
+    <style>
+        div {
+            padding-left: 300px;
+        }
+        
+        div:nth-of-type(2) {
+            padding-left: 450px;
+        }
+    </style>
+</head>
+
+<body style="background: gray;">
+    <h1 style="text-align: center;">Industrial Land Rate Calculator (Demo) |Year 2018-19</h1>
+    <h4 style="text-align: center;">write later this line</h4>
+    <h1 style="text-align: center;">____________________________________________________________</h1>
+    <form name="form">
+        <div>
+            <label>Please enter requiered arae (in sq.ft)</label><input type="text" name="area" id="area"><br>
+            <label>please select a Year</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="year" id="year">
+            <option value="0">-select-</option>
+            <option value="90">2018-19</option>
+            <option value="80">2017-18</option>
+            <option value="70">2016-17</option>
+            <option value="60">2015-16</option>
+            <option value="50">2014-15</option>
+        </select><br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <input type="button" onclick="submit1()" name="submit" value="submit" id="submit">&nbsp;&nbsp;&nbsp;<input value="reset" type="reset" name="reset" id="reset">
+        </div>
+        <h2 style="text-align: center">__________________________________________________________________________________</h2>
+        <h4 style="text-align: center;">write later this line</h4>
+        <div>
+
+            <label>Area is slab 1</label>&nbsp;&nbsp;<input type="text" name="slab1" id="slab1">&nbsp;&nbsp;<label>(slab 1 :0 - 4000 sqm)</label><br>
+            <label>Area is slab 2</label>&nbsp;&nbsp;<input type="text" name="slab2" id="slab2">&nbsp;&nbsp;<label>(slab 2 :4001 - 8000 sqm)</label><br>
+            <label>Area is slab 3</label>&nbsp;&nbsp;<input type="text" name="slab3" id="slab3">&nbsp;&nbsp;<label>(slab 3 :8001 - 12000 sqm)</label><br>
+            <label>Area is slab 4</label>&nbsp;&nbsp;<input type="text" name="slab4" id="slab4">&nbsp;&nbsp;<label>(slab 4 :12001 - 16000 sqm)</label><br>
+            <label>Area is slab 5</label>&nbsp;&nbsp;<input type="text" name="slab5" id="slab5">&nbsp;&nbsp;<label>(slab 5 :16001 - 20000 sqm)</label><br>
+            <label>Area is slab 6</label>&nbsp;&nbsp;<input type="text" name="slab6" id="slab6">&nbsp;&nbsp;<label>(slab 6 :20001 --- sqm)</label><br>
+        </div>
+        <h2 style="text-align: center">__________________________________________________________________________________</h2>
+        <div>
+
+            <label>total amount as per your requriment</label><input type="text" name="amount" id="amount"><br>
+            <label>amount per unit(in Rupee) </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="unit" id="unit">
+        </div>
+        <h2 style="text-align: center">__________________________________________________________________________________</h2>
+    </form>
+
+
+
+    <script>
+        function submit1() {
+            var area = parseInt(document.getElementById("area").value);
+            var year = parseInt(document.getElementById("year").value);
+            var u = area / year;
+            var unit1 = u.toFixed(2);
+            if (area <= 4000) {
+                document.getElementById("slab1").value = area;
+                document.getElementById("slab2").value = 0;
+                document.getElementById("slab3").value = 0;
+                document.getElementById("slab4").value = 0;
+                document.getElementById("slab5").value = 0;
+                document.getElementById("slab6").value = 0;
+                document.getElementById("amount").value = area * year;
+                document.getElementById("unit").value = unit1;
+            } else if (area <= 8000) {
+                document.getElementById("slab1").value = 4000;
+                document.getElementById("slab2").value = area - 4000;
+                document.getElementById("slab3").value = 0;
+                document.getElementById("slab4").value = 0;
+                document.getElementById("slab5").value = 0;
+                document.getElementById("slab6").value = 0;
+                document.getElementById("amount").value = area * year;
+                document.getElementById("unit").value = unit1;
+            } else if (area <= 12000) {
+                document.getElementById("slab1").value = 4000;
+                document.getElementById("slab2").value = 8000;
+                document.getElementById("slab3").value = area - 8000;
+                document.getElementById("slab4").value = 0;
+                document.getElementById("slab5").value = 0;
+                document.getElementById("slab6").value = 0;
+                document.getElementById("amount").value = area * year;
+                document.getElementById("unit").value = unit1;
+            } else if (area <= 16000) {
+                document.getElementById("slab1").value = 4000;
+                document.getElementById("slab2").value = 8000;
+                document.getElementById("slab3").value = 12000;
+                document.getElementById("slab4").value = area - 12000;
+                document.getElementById("slab5").value = 0;
+                document.getElementById("slab6").value = 0;
+                document.getElementById("unit").value = unit1;
+            } else if (area <= 20000) {
+                document.getElementById("slab1").value = 4000;
+                document.getElementById("slab2").value = 8000;
+                document.getElementById("slab3").value = 12000;
+                document.getElementById("slab4").value = 16000;
+                document.getElementById("slab5").value = area - 16000;;
+                document.getElementById("slab6").value = 0;
+                document.getElementById("amount").value = area * year;
+                document.getElementById("unit").value = unit1;
+            } else {
+                document.getElementById("slab1").value = 4000;
+                document.getElementById("slab2").value = 8000;
+                document.getElementById("slab3").value = 12000;
+                document.getElementById("slab4").value = 16000;
+                document.getElementById("slab5").value = 20000;
+                document.getElementById("slab6").value = area - 20000;
+                document.getElementById("amount").value = area * year;
+                document.getElementById("unit").value = unit1;
+            }
+
+
+
+            // document.getElementById("amount").value = area * year;
+
+            // document.getElementById("unit").value=area/year;
+
+        }
+    </script>
+
+</body>
+
+</html>
